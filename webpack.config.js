@@ -26,6 +26,6 @@ var config = {
     hot:true,
     historyApiFallback: true,
     contentBase: SRC_DIR + '/public/',
-  },  
+  }
 }
 module.exports = config
