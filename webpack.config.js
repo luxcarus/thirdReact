@@ -11,6 +11,21 @@ var config = {
     filename: 'bundle.js',
     publicPath: '/public/'
   },
+  resolve: {
+    // extensions: ['', '.js', '.json'],
+    // fallback: [path.join(__dirname, '../node_modules')],
+    // fallback: [SRC_DIR],
+    alias: {
+      // 'vue': 'obigo-js-core-rnbs/dist/vue.common.js',
+      // 'obigo-js-ui': 'obigo-js-ui-rnbs',
+      // 'src': path.resolve(__dirname, '../src'),
+      // 'assets': path.resolve(__dirname, '../src/assets'),
+      // 'components': path.resolve(__dirname, '../src/components')
+      'components': SRC_DIR + '/app/components',
+      'containers': SRC_DIR + '/app/containers',
+      'libs': SRC_DIR + '/libs'
+    }
+  },
   module: {
     loaders: [
       {
@@ -20,6 +35,9 @@ var config = {
       }
     ]
   },
+  plugins:[
+
+  ],
   devServer: {
     port: 12000,
     inline: true,

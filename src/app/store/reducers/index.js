@@ -1,2 +1,2 @@
-export import loginReducers from './loginReducers'
+export import signinReducers from './signinReducers'
 // export {loginReducers}

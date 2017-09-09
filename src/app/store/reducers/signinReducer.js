@@ -5,7 +5,7 @@ const initial = {
   id:null,password:null,remember:false
 }
 
-const loginReducers = (state = initial, action) => {
+const signinReducers = (state = initial, action) => {
   switch (action.type) {
     case A.SIGN_IN:
       return {
@@ -25,15 +25,13 @@ const loginReducers = (state = initial, action) => {
       return {
         ...state,
         id:action.id,
-        password:action.password,
-        remember:action.remember
+        password:action.password
       }
     case A.SIGN_DOWN:
       return {
         ...state,
         id:action.id,
-        password:action.password,
-        remember:action.remember
+        password:action.password
       }
     default :
       return state;
@@ -45,6 +43,6 @@ const extra = (state = { list: 'this_is_extra_reducer' }, action) => {
   }
 }
 export default combineReducers({
-    loginReducers,
+    signinReducers,
     extra
 });
