@@ -1,17 +1,11 @@
 export default class Ajax {
-  constructor (/* Object */o) {
-    // this.url = o.url,
-    // this.method = o.methid || 'GET',
-    // this.async = o.async || true
-    // this.onSuccess = o.onSuccess || function () {},
-    // this.onError = o.onError || function () {},
-    // this.dataType = o.dataType || 'json'
-    this.url = null,
-    this.method = 'GET',
-    this.async =  true
-    this.onSuccess = function () {},
-    this.onError = function () {},
-    this.dataType = 'json'
+  constructor (/* Object */o = {}) {
+    this.url = o.url || null,
+    this.method = o.method || 'GET',
+    this.async =  o.async || true
+    this.onSuccess = o.onSuccess || function () {},
+    this.onError = o.onError || function () {},
+    this.dataType = o.dataType || 'json'
   }
 
   request (/* Object */ data) {
@@ -36,15 +30,13 @@ export default class Ajax {
     // }
   }
   temp (data) {
-    // let $this = this
-    // setTimeout(function() {
-    //  $this.onSuccess({isMember: true})
-    // }, 1500);
-    if (data.id === '1' && data.password === '1') {
-      this.onSuccess({isMember: true})
-    } else {
-      this.onSuccess({isMember: false})
-    }
+    setTimeout(() => {
+      if (data.id === '1' && data.password === '1') {
+        this.onSuccess({isMember: true, id: 'Yamada', name: 'Daisuke'})
+      } else {
+        this.onSuccess({isMember: false})
+      }
+    }, 550)
   }
 
   setUrl (url) {

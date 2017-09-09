@@ -1,10 +1,10 @@
 import React from 'react'
-// import PropTypes from 'prop-types';
+import './button.css'
 export default class Button extends React.Component {
   render () {
     return (
       <div> 
-        <button className={this.props.class} onClick={this.props.onClick}>{this.props.value||'button'}</button>
+        <button className={this.props.class||'tt-button'} onClick={this.props.onClick}>{this.props.value||'button'}</button>
       </div>
     )
   }

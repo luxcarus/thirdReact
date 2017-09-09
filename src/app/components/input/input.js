@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-export default class Input extends React.Component {
+// export default class Input extends React.Component {
+class Input extends React.Component {
   render () {
     return (
       <div> 
@@ -17,6 +18,8 @@ Input.PropTypes = {
   onSubmit: PropTypes.func,
   onChange: PropTypes.func
 }
+export default Input
+
 
 // export const Input = (props) => {
 //   Input.PropTypes = {

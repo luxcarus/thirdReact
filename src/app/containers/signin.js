@@ -1,14 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Input } from 'components/input'
-import { Checkbox } from 'components/input'
-import { Button } from 'components/button'
-import { Message } from 'components/message'
 import { connect } from 'react-redux'
 import Ajax from 'libs/Http/Ajax'
-
+import { Button, Checkbox, Input, Message } from 'components'
 import { updateMemberStatus } from 'actions'
-// export default class SignIn extends React.Component {
+
 class SignIn extends React.Component {
 
   constructor (props) {
@@ -18,7 +14,6 @@ class SignIn extends React.Component {
     this.idOnChange = this.idOnChange.bind(this)
     this.passwordOnChange = this.passwordOnChange.bind(this)
     this.state = {
-      // isMember: true,
       id: null,
       password: null
     }
@@ -26,30 +21,23 @@ class SignIn extends React.Component {
 
   signIn () {
     
-    let $this = this
-    if(!this.ajax){
-      this.ajax = new Ajax()
-    }
+    if (!this.ajax) this.ajax = new Ajax()
     this.ajax.setUrl('www.tt.com')
     this.ajax.setOnSuccess((data) => {
       if (data) {
-        // if (data.isMember) {
-        //   // this.setState({isMember: true})
-        //   this.context.router.history.push("home")
-        //   debugger
-        // } else {
-        //   console.log('not a member')
-        //   // this.setState({isMember: false})
-        // }
-        this.props.updateMemberStatus({
-          isMember: data.isMember,
-          id: 'sth1',
-          name: 'sth2'
-        })
-
-        console.log(this.props)
-
-
+        if (data.isMember) {
+          // this.props.updateMemberStatus({
+            //   isMember: data.isMember,
+            //   id: data.id,
+            //   name: data.className
+            // })
+          this.props.updateMemberStatus({
+            ...data
+          })
+          this.context.router.history.push("home")
+        } else {
+          console.log('not a member')
+        }
       }
     }).request({id: this.state.id, password: this.state.password})
   }
@@ -82,7 +70,6 @@ SignIn.contextTypes = {
   router: PropTypes.object.isRequired
 }
 let mapStateToProps = (state) => {
-  console.log(state)
   return {
     isMember: state.signin.isMember
   }

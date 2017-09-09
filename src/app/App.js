@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import {Button} from 'components/button'
+import PropTypes from 'prop-types'
+import { Button } from 'components'
+import styles from 'components/button/button.css'
 export default class App extends React.Component {
   constructor () {
     super()
-    this.states = {}
     this.signIn = this.signIn.bind(this)
   }
   signIn () {
@@ -13,10 +13,11 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <div className = "app">
+        {/* <div className = "app"> */}
+        <div className = {styles.app}>
           This is App
         </div>
-        <Button value="sign in" onClick={this.signIn}></Button>
+        <Button class="tt-button" value="sign in" onClick={this.signIn}></Button>
       </div>
     )
   }
