@@ -14,8 +14,8 @@ export default class Ajax {
     this.dataType = 'json'
   }
 
-  request () {
-    this.temp()
+  request (/* Object */ data) {
+    this.temp(data)
     // this.method = this.method.toUpperCase()
     // var req = new XMLHttpRequest()
     // req.open(this.method, this.url, this.async)
@@ -35,13 +35,16 @@ export default class Ajax {
     //   req.send(null)
     // }
   }
-  temp () {
-    // console.log('in')
+  temp (data) {
     // let $this = this
     // setTimeout(function() {
     //  $this.onSuccess({isMember: true})
     // }, 1500);
-    this.onSuccess({isMember: false})
+    if (data.id === '1' && data.password === '1') {
+      this.onSuccess({isMember: true})
+    } else {
+      this.onSuccess({isMember: false})
+    }
   }
 
   setUrl (url) {

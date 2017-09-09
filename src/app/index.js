@@ -5,15 +5,15 @@ import {Router, Route, Switch} from 'react-router'
 import { createStore } from 'redux'
 import { Provider  } from 'react-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
-import signinReducers from './store/reducers/signinReducer'
+import signinR from 'reducers/signin'
 // import registerServiceWorker from './registerServiceWorker';
 
 import App from './App'
-import Home from './containers/home'
-import Signin from './containers/signin'
+import Home from 'containers/home'
+import Signin from 'containers/signin'
 
 const history = createBrowserHistory()
-const store = createStore(signinReducers);
+const store = createStore(signinR);
 
 const render = () => {
   ReactDOM.render(

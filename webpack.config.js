@@ -23,7 +23,9 @@ var config = {
       // 'components': path.resolve(__dirname, '../src/components')
       'components': SRC_DIR + '/app/components',
       'containers': SRC_DIR + '/app/containers',
-      'libs': SRC_DIR + '/libs'
+      'libs': SRC_DIR + '/libs',
+      'actions': SRC_DIR + '/app/store/actions',
+      'reducers': SRC_DIR + '/app/store/reducers'
     }
   },
   module: {
